@@ -1,0 +1,12 @@
+<Window x:Class="WarCalc.Wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Warhammer Army Calculator" Height="330" Width="360" WindowStartupLocation="CenterScreen">
+    <StackPanel Margin="24" VerticalAlignment="Center">
+        <TextBlock Text="Warhammer Army Calculator" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+        <TextBlock Text="Build army lists and calculate expected damage" Foreground="Gray" HorizontalAlignment="Center" Margin="0,2,0,18"/>
+        <Button Content="Army builder" Click="Army_Click" Padding="10,8"/>
+        <Button Content="Units &amp; weapons" Click="Units_Click" Padding="10,8"/>
+        <Button Content="Factions" Click="Factions_Click" Padding="10,8"/>
+    </StackPanel>
+</Window>
