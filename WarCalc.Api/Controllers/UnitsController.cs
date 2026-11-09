@@ -25,7 +25,7 @@ public class UnitsController(WarContext db) : ControllerBase
     {
         if (!await db.Factions.AnyAsync(f => f.Id == unit.FactionId)) return BadRequest("Unknown faction.");
         unit.Id = 0;
-        unit.Weapons.Clear();           // weapons are managed through /api/weapons
+        unit.Weapons.Clear();           
         db.Units.Add(unit);
         await db.SaveChangesAsync();
         return CreatedAtAction(nameof(Get), new { id = unit.Id }, unit);
@@ -38,7 +38,7 @@ public class UnitsController(WarContext db) : ControllerBase
         if (existing is null) return NotFound();
         if (!await db.Factions.AnyAsync(f => f.Id == unit.FactionId)) return BadRequest("Unknown faction.");
         unit.Id = id;
-        db.Entry(existing).CurrentValues.SetValues(unit);   // copies scalar fields only
+        db.Entry(existing).CurrentValues.SetValues(unit);  
         await db.SaveChangesAsync();
         return NoContent();
     }
@@ -53,8 +53,7 @@ public class UnitsController(WarContext db) : ControllerBase
         return NoContent();
     }
 
-    // ---- custom ----
-    /// <summary>Filter by name (contains), faction and maximum points. All parameters optional.</summary>
+    
     [HttpGet("search")]
     public async Task<List<Unit>> Search(string? name, int? factionId, int? maxPoints)
     {

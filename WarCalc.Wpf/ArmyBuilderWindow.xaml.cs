@@ -50,7 +50,6 @@ public partial class ArmyBuilderWindow : Window
         SummaryText.Foreground = Brushes.Black;
     }
 
-    // ---- army CRUD ----
     void NewArmy_Click(object s, RoutedEventArgs e)
     {
         ArmyList.SelectedItem = null;
@@ -75,8 +74,6 @@ public partial class ArmyBuilderWindow : Window
         Form.DataContext = new Army();
         await ReloadArmies();
     });
-
-    // ---- custom endpoints: POST/DELETE api/armies/{id}/units ----
     async void Add_Click(object s, RoutedEventArgs e) => await Api.Safe(async () =>
     {
         if (ArmyList.SelectedItem is not Army a || AvailableGrid.SelectedItem is not Unit u)

@@ -57,8 +57,7 @@ public class WeaponsController(WarContext db) : ControllerBase
         return NoContent();
     }
 
-    // ---- custom ----
-    /// <summary>Expected damage of this weapon (fired by N models) against a target unit.</summary>
+   
     [HttpGet("{id:int}/damage/{targetUnitId:int}")]
     public async Task<ActionResult<DamageResult>> Damage(int id, int targetUnitId, int attackers = 1)
     {

@@ -48,13 +48,12 @@ public class FactionsController(WarContext db) : ControllerBase
     {
         var existing = await db.Factions.FindAsync(id);
         if (existing is null) return NotFound();
-        db.Factions.Remove(existing);   // cascades to units, weapons and armies
+        db.Factions.Remove(existing);   
         await db.SaveChangesAsync();
         return NoContent();
     }
 
-    // ---- custom ----
-    /// <summary>All units that belong to the faction.</summary>
+
     [HttpGet("{id:int}/units")]
     public async Task<ActionResult<List<Unit>>> GetUnits(int id)
     {

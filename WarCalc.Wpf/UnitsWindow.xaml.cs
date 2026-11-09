@@ -23,7 +23,6 @@ public partial class UnitsWindow : Window
         await Reload();
     }
 
-    // Uses the custom GET api/units/search endpoint.
     async Task Reload() => await Api.Safe(async () =>
     {
         var url = $"api/units/search?name={Uri.EscapeDataString(SearchBox.Text)}&factionId={FilterFaction.SelectedValue ?? 0}";

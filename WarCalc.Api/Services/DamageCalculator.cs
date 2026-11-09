@@ -2,13 +2,10 @@ using WarCalc.Api.Models;
 
 namespace WarCalc.Api.Services;
 
-/// <summary>Expected-value maths: hit -> wound -> save -> damage.</summary>
 public static class DamageCalculator
 {
-    // "X+" on a D6. An unmodified 1 always fails, an unmodified 6 always succeeds.
     private static double Chance(int x) => Math.Clamp((7 - x) / 6.0, 1 / 6.0, 5 / 6.0);
 
-    /// <summary>The "X+" needed to wound for a given Strength vs Toughness.</summary>
     public static int WoundRoll(int strength, int toughness) =>
         strength >= toughness * 2 ? 2 :
         strength > toughness ? 3 :
@@ -25,7 +22,7 @@ public static class DamageCalculator
         var saved = Math.Clamp((7 - bestSave) / 6.0, 0, 5 / 6.0);
 
         var unsaved = attackers * w.Attacks * hit * wound * (1 - saved);
-        var damage = unsaved * Math.Min(w.Damage, target.Wounds);   // damage beyond a model's wounds is wasted
+        var damage = unsaved * Math.Min(w.Damage, target.Wounds);   
         var slain = Math.Min(damage / target.Wounds, target.ModelCount);
 
         return new DamageResult(w.Name, target.Name, attackers,

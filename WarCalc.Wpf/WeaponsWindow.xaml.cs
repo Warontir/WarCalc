@@ -55,7 +55,7 @@ public partial class WeaponsWindow : Window
         await Reload();
     });
 
-    // Uses the custom GET api/weapons/{id}/damage/{targetUnitId} endpoint.
+
     async void Calc_Click(object s, RoutedEventArgs e) => await Api.Safe(async () =>
     {
         if (WeaponGrid.SelectedItem is not Weapon w || TargetBox.SelectedValue is not int targetId)

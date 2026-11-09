@@ -11,7 +11,6 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Code-first: creates warcalc.db + seed data on first start.
 using (var scope = app.Services.CreateScope())
     scope.ServiceProvider.GetRequiredService<WarContext>().Database.EnsureCreated();
 
