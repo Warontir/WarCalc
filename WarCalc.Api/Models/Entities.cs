@@ -20,8 +20,8 @@ public class Unit
     [Range(0, 3000)] public int Points { get; set; }
     [Range(0, 50)] public int Move { get; set; }
     [Range(1, 20)] public int Toughness { get; set; }
-    [Range(2, 7)] public int Save { get; set; }                 // 3 = 3+, 7 = no save
-    [Range(2, 6)] public int? InvulnerableSave { get; set; }    // null = none
+    [Range(2, 7)] public int Save { get; set; }                 
+    [Range(2, 6)] public int? InvulnerableSave { get; set; }    
     [Range(1, 50)] public int Wounds { get; set; }
     [Range(2, 10)] public int Leadership { get; set; }
     [Range(0, 10)] public int ObjectiveControl { get; set; }
@@ -34,12 +34,12 @@ public class Weapon
     public int Id { get; set; }
     [Required, MaxLength(80)] public string Name { get; set; } = "";
     public int UnitId { get; set; }
-    [Range(0, 72)] public int RangeInches { get; set; }         // 0 = melee
-    [Range(0.5, 50)] public double Attacks { get; set; }        // average (D6 = 3.5)
-    [Range(2, 6)] public int Skill { get; set; }                // BS/WS: 3 = 3+
+    [Range(0, 72)] public int RangeInches { get; set; }         
+    [Range(0.5, 50)] public double Attacks { get; set; }        
+    [Range(2, 6)] public int Skill { get; set; }                
     [Range(1, 30)] public int Strength { get; set; }
-    [Range(0, 6)] public int Ap { get; set; }                   // AP-2 is stored as 2
-    [Range(0.5, 50)] public double Damage { get; set; }         // average
+    [Range(0, 6)] public int Ap { get; set; }                   
+    [Range(0.5, 50)] public double Damage { get; set; }         
     [JsonIgnore] public Unit? Unit { get; set; }
 }
 
