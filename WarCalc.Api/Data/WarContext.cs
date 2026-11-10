@@ -49,10 +49,5 @@ public class WarContext(DbContextOptions<WarContext> options) : DbContext(option
             W(9, 5, "Power klaw", 0, 3, 4, 9, 2, 2),
             W(10, 6, "Gauss flayer", 24, 1, 4, 4, 1, 1),
             W(11, 7, "Gauss blaster", 24, 2, 3, 5, 2, 1));
-
-        b.Entity<Army>().HasData(new Army { Id = 1, Name = "Starter Strike Force", FactionId = 1, PointsLimit = 500 });
-        b.Entity<ArmyUnit>().HasData(
-            new ArmyUnit { Id = 1, ArmyId = 1, UnitId = 1, Quantity = 2 },
-            new ArmyUnit { Id = 2, ArmyId = 1, UnitId = 2, Quantity = 1 });
     }
 }

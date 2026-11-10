@@ -5,7 +5,7 @@
     <Grid Margin="10">
         <Grid.ColumnDefinitions><ColumnDefinition Width="250"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
 
-        <!-- Army list + army form (Create / Update / Delete) -->
+        
         <DockPanel Margin="0,0,10,0">
             <StackPanel DockPanel.Dock="Bottom" x:Name="Form" Margin="0,8,0,0">
                 <TextBlock Text="Name"/>
@@ -25,7 +25,6 @@
             </GroupBox>
         </DockPanel>
 
-        <!-- Selected army: summary, lines, available units -->
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="Auto"/>

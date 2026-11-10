@@ -54,6 +54,7 @@ public class FactionsController(WarContext db) : ControllerBase
     }
 
 
+
     [HttpGet("{id:int}/units")]
     public async Task<ActionResult<List<Unit>>> GetUnits(int id)
     {
